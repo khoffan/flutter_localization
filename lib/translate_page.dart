@@ -1,9 +1,10 @@
+import 'package:app_translate/core/app_localizations.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'core/locale_keys.dart';
 
 class TranslatePage extends StatefulWidget {
-  Function? changeLang;
-  TranslatePage({super.key, this.changeLang});
+  TranslatePage({super.key});
 
   @override
   State<TranslatePage> createState() => _TranslatePageState();
@@ -16,18 +17,18 @@ class _TranslatePageState extends State<TranslatePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Translate'),
+        title: Text(LocaleKeys.welcome_name.tr(args: ["Guys"])),
         actions: [
-          ElevatedButton(
-            onPressed: () {
-              setState(() {
-                isThai = !isThai;
-              });
-              widget.changeLang!(
-                isThai ? const Locale('th') : const Locale('en'),
+          IconButton(
+            onPressed: () async {
+              isThai = !isThai;
+              await context.setLocale(
+                isThai ? AppLocalizations.thLocale : AppLocalizations.engLocale,
               );
+
+              setState(() {});
             },
-            child: Text("change lang"),
+            icon: Icon(Icons.language_outlined),
           ),
         ],
       ),
@@ -36,21 +37,34 @@ class _TranslatePageState extends State<TranslatePage> {
   }
 }
 
-class MyTranslate extends StatefulWidget {
+class MyTranslate extends StatelessWidget {
   const MyTranslate({super.key});
 
   @override
-  State<MyTranslate> createState() => _MyTranslateState();
-}
-
-class _MyTranslateState extends State<MyTranslate> {
-  @override
   Widget build(BuildContext context) {
+    final locale = context.locale;
+
     return Center(
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(AppLocalizations.of(context)!.hello("john")),
-          Text(AppLocalizations.of(context)!.hello("matha")),
+          Text(
+            tr(LocaleKeys.hello),
+          ), // ใช้ `.tr()` ตรง ๆ เพื่อให้รองรับการเปลี่ยนภาษา
+          Text(LocaleKeys.welcome_name.tr(args: ["Everyone"])),
+          Row(
+            children: [
+              ElevatedButton(onPressed: () {}, child: Text(tr(LocaleKeys.add))),
+              ElevatedButton(
+                onPressed: () {},
+                child: Text(tr(LocaleKeys.cancel)),
+              ),
+              ElevatedButton(
+                onPressed: () {},
+                child: Text(tr(LocaleKeys.save)),
+              ),
+            ],
+          ),
         ],
       ),
     );
