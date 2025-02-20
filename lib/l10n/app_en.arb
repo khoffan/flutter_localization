@@ -1,0 +1,12 @@
+{
+    "hello": "Hello {username}",
+    "@hello": {
+        "description": "The conventional newborn programmer greeting",
+        "placeholders": {
+            "username": {
+                "type": "String",
+                "example": "bob"
+            }
+        }
+    }
+}
