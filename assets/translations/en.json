@@ -1,1 +1,15 @@
-{"add":"Add","cancel":"Cancel","hello":"hello world","save":"Save","welcome-name":"welcome {}"}
+{
+	"add": "Add",
+	"cancel": "Cancel",
+	"hello": "hello world",
+	"save": "Save",
+	"welcome-name": "welcome {}",
+	"sp1": {
+		"welcome_sp1": "welcome sp1",
+		"welcome_sp1_name": "welcome sp1 {}",
+		"details": {
+			"name": "{}",
+			"age": "{}"
+		}
+	}
+}

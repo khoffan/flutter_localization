@@ -1,0 +1,15 @@
+{
+    "add": "Aggiungere",
+    "cancel": "Cancellare",
+    "hello": "Ciao mondo",
+    "save": "Salva",
+    "welcome-name": "Benvenuto {}",
+    "sp1": {
+        "welcome_sp1": "Benvenuto SP1",
+        "welcome_sp1_name": "Benvenuto SP1 {}",
+        "details": {
+            "name": "{}",
+            "age": "{}"
+        }
+    }
+}

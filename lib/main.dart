@@ -11,6 +11,7 @@ Future<void> main() async {
       supportedLocales: const [
         AppLocalizations.engLocale,
         AppLocalizations.thLocale,
+        AppLocalizations.itLocale,
       ],
       path: AppLocalizations.translationFilePath,
       fallbackLocale: AppLocalizations.engLocale,
@@ -27,6 +28,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       localizationsDelegates: context.localizationDelegates,
+
       supportedLocales: context.supportedLocales,
       locale: context.locale,
       home: TranslatePage(),
